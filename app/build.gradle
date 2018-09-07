@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSDK
+    defaultConfig {
+        applicationId "com.asanarebel.githubapp"
+
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+
+        versionCode Versions.appVersionCode
+        versionName Versions.appVersionName
+
+        testInstrumentationRunner "com.asanarebel.githubapp.functionaltests.GithubAppFunctionalTestsRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+kapt {
+    generateStubs = true
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation Deps.kotlinStdLib
+
+    // Architecture components
+    implementation Deps.lifecycle
+    implementation Deps.paging
+    implementation Deps.pagingRxJava2
+
+    // Support Libraries
+    implementation Deps.appCompat
+    implementation Deps.constraintLayout
+    implementation Deps.material
+
+    // Network
+    implementation Deps.retrofit
+    implementation Deps.rxJava2Converter
+    implementation Deps.retrofitGsonConverter
+    implementation Deps.okHttp
+
+    // RX
+    implementation Deps.rxJava2
+    implementation Deps.rxAndroid
+
+    // JSON parsing
+    implementation Deps.gson
+
+    // DI
+    kapt Deps.dagger2Compiler
+    implementation Deps.dagger2
+
+    kapt Deps.dagger2AndroidProcessor
+    implementation Deps.dagger2Android
+    implementation Deps.dagger2AndroidSupport
+
+    // Parceler
+    implementation Deps.parceler
+    kapt Deps.parcelerProcessor
+
+    // Image Loading
+    implementation Deps.picasso
+
+    // Tools
+    implementation Deps.stetho
+
+    // Testing
+    testImplementation Deps.junit
+
+    androidTestImplementation Deps.rules
+    androidTestImplementation Deps.testRunner
+    androidTestImplementation Deps.espressoCore
+    androidTestImplementation Deps.espressoContrib
+    androidTestImplementation Deps.mockWebServer
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+
+    <data>
+
+        <variable
+            name="watcher"
+            type="com.asanarebel.githubapp.feature.repo.model.Watcher"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/watcherAvatar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                app:imageUrl="@{watcher.avatarUrl}"
+                android:padding="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@color/lightGrey"
+                />
+
+
+            <TextView
+                android:id="@+id/watcherName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{watcher.login}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/watcherAvatar"
+                tools:text="Long name of the watcher of the repository"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/watcherName"
+                app:layout_constraintStart_toStartOf="@id/watcherName"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:autoLink="web"
+                android:text="@{watcher.url}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

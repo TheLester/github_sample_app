@@ -1,0 +1,15 @@
+
+<resources>
+    <string name="app_name">GIthubApp</string>
+
+    <string name="fragment_search_title">Search repos</string>
+    <string name="fragment_details_title">Repo details</string>
+    <string name="repo_item_forks">Forks count: %d</string>
+    <string name="repo_detail_watchers">Watchers: %d</string>
+
+    <string name="error_network">Check your internet connection.</string>
+    <string name="error_timeout">Server not responding</string>
+    <string name="error_generic">Unknown error</string>
+    <string name="error_empty">No repos were found. Please try again with another search keyword.</string>
+
+</resources>
